@@ -11,7 +11,8 @@ mongoose.connect("mongodb://localhost/students-db", {
 
 const studentSchema = mongoose.Schema({
   name: String,
-  imageURL: String
+  imageURL: String,
+  summary: String
 });
 
 const Student = mongoose.model("Student", studentSchema);
@@ -35,7 +36,9 @@ app.post("/add-student", (req, res) => {
   let name = req.body.name;
   let imageURL = req.body.imageURL;
   let surname = req.body.surname;
-  Student.create({ name, imageURL, surname }, (err, student) => {
+  let summary = req.body.summary;
+  let newStudent = { name, imageURL, surname, summary };
+  Student.create(newStudent, (err, student) => {
     if (err) {
       console.log(err);
     }
