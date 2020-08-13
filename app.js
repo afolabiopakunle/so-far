@@ -46,8 +46,11 @@ app.post("/add-student", (req, res) => {
   res.redirect("/");
 });
 
-app.get("/students/:id", (req, res) => {
-  res.render("student");
+app.get("/student/:id", (req, res) => {
+  id = req.params.id;
+  Student.findById(id, (err, student) => {
+    res.render("student", { student });
+  });
 });
 
 app.listen(3000, () =>
