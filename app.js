@@ -16,31 +16,8 @@ const studentSchema = mongoose.Schema({
 
 const Student = mongoose.model("Student", studentSchema);
 
-// Student.create({
-//   name: "Babajide Sanwolu",
-//   imageURL: "https://uifaces.co/our-content/donated/1H_7AxP0.jpg"
-// });
-
-// let students = [
-//   {
-//     name: "Jide",
-//     surname: "Kosoko",
-//     imageURL: "https://randomuser.me/api/portraits/men/32.jpg"
-//   },
-//   {
-//     name: "Tunde",
-//     surname: "Ednut",
-//     imageURL: "https://randomuser.me/api/portraits/men/3.jpg"
-//   },
-//   {
-//     name: "Kola",
-//     surname: "Oyewo",
-//     imageURL: "https://randomuser.me/api/portraits/men/86.jpg"
-//   }
-// ];
-
 app.get("/", (req, res) => {
-  Student.find((err, students) => {
+  Student.find({}, (err, students) => {
     if (err) {
       console.log(err);
     } else {
