@@ -46,6 +46,10 @@ app.post("/add-student", (req, res) => {
   res.redirect("/");
 });
 
+app.get("/students/:id", (req, res) => {
+  res.render("student");
+});
+
 app.listen(3000, () =>
   console.log(`port listening on port ${PORT} http://localhost:${PORT}`)
 );
